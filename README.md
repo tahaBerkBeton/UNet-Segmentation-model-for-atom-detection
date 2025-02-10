@@ -32,7 +32,7 @@ For a detailed view of the architecture implementation, please refer to the `tra
 
 ## Dataset
 
-<img src="assets/data_truth.png" alt="Data Sample with Corresponding Truth" width="300"/>  
+<img src="assets/data_truth.png" alt="Data Sample with Corresponding Truth" width="400"/>  
 Figure: Data Sample with Corresponding Truth
 
 The training dataset for this project is stored in the `dataset` directory of this repository. This folder contains a sample representing the type of data used for model training. Specifically, the dataset comprises 2,000 images, each named in the format `data_xxxx.tiff`, where `xxxx` is a zero-padded number ranging from 0001 up to 2000, corresponding to each data point.
