@@ -1,4 +1,3 @@
-
 # UNet Segmentation Model for Atom Detection
 
 ## Introduction
@@ -9,10 +8,11 @@ Our goal is to segment these fluorescence images to accurately identify the exac
 
 ## Architecture Chosen
 
-<div align="center">
+<p align="center">
   <img src="assets/unet_architecture.png" alt="UNet Architecture" width="200"/>
-</div>
-Figure: UNet Architecture
+  <br>
+  <em>UNet Architecture showing the encoder-decoder structure with skip connections</em>
+</p>
 
 The architecture chosen for this project is a U-Net based model, specifically a variant referred to as `GridNetU`. This design is tailored for segmentation tasks and offers several key benefits for atom detection:
 
@@ -32,8 +32,11 @@ For a detailed view of the architecture implementation, please refer to the `tra
 
 ## Dataset
 
-<img src="assets/data_truth.png" alt="Data Sample with Corresponding Truth" width="400"/>  
-Figure: Data Sample with Corresponding Truth
+<p align="center">
+  <img src="assets/data_truth.png" alt="Data Sample with Corresponding Truth" width="400"/>
+  <br>
+  <em>Example of input data (left) and corresponding ground truth segmentation mask (right)</em>
+</p>
 
 The training dataset for this project is stored in the `dataset` directory of this repository. This folder contains a sample representing the type of data used for model training. Specifically, the dataset comprises 2,000 images, each named in the format `data_xxxx.tiff`, where `xxxx` is a zero-padded number ranging from 0001 up to 2000, corresponding to each data point.
 
@@ -43,8 +46,11 @@ This dataset was acquired in a single experimental run under fixed conditions.
 
 ## Training
 
-<img src="assets/training_validation_loss.png" alt="Training Curve over 30 Epochs" width="400"/>  
-Figure: Training Curve over 30 Epochs
+<p align="center">
+  <img src="assets/training_validation_loss.png" alt="Training Curve over 30 Epochs" width="400"/>
+  <br>
+  <em>Training and validation loss curves showing model convergence over 30 epochs</em>
+</p>
 
 The model is trained using a standard deep learning pipeline implemented in PyTorch. We perform an 80/20 split of the dataset into training and validation sets and use data loaders to efficiently feed batches of images and their corresponding masks into the model.
 
@@ -56,8 +62,11 @@ For a more detailed view of the training procedure, please refer to the `train.p
 
 ## Test and Results
 
-<img src="assets/binary_predictions_werrors.png" alt="Binary Model Prediction on a Random Sample with Circled Errors" width="300"/>  
-Figure: Binary Model Prediction on a Random Sample with Circled Errors Compared to the Truth
+<p align="center">
+  <img src="assets/binary_predictions_werrors.png" alt="Binary Model Prediction on a Random Sample with Circled Errors" width="300"/>
+  <br>
+  <em>Comparison between model predictions and ground truth, with prediction errors highlighted in red</em>
+</p>
 
 The performance of the trained model is evaluated using two scripts: `test.py` and `statistics_val_dataset.py`.
 
@@ -83,7 +92,10 @@ The performance of the trained model is evaluated using two scripts: `test.py` a
 
 - **ROC Curve (`roc.py`)**:
 
-<img src="assets/roc_curve.png" alt="ROC Curve" width="300"/>  
-Figure: ROC Curve
+<p align="center">
+  <img src="assets/roc_curve.png" alt="ROC Curve" width="300"/>
+  <br>
+  <em>ROC curve showing model performance across different detection thresholds</em>
+</p>
 
 Additionally, the `roc.py` script provides further insights by computing the ROC curve across a range of detection thresholds. By evaluating the true positive rate (TPR) and false positive rate (FPR) at 10 evenly spaced thresholds between 0 and 1, the ROC curve illustrates that the model maintains high sensitivity while keeping false detections to a minimum. This analysis reinforces the effectiveness of our U-Net-based architecture for the atom detection task.
