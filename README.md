@@ -30,4 +30,4 @@ The training dataset for this project is stored in the `dataset` directory of th
 
 Each grayscale image, with pixel intensity values between 0 and 255, captures the fluorescence pattern produced by the atoms after excitation by lasers. Accompanying each image is a binary mask that serves as the ground truth for segmentation; for example, the file `data_0001.tiff` is paired with `truth_0001.tiff`.
 
-This dataset was acquired in a single experimental run under fixed conditions, ensuring a consistent and reliable set of training data.
+This dataset was acquired in a single experimental run under fixed conditions.
