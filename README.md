@@ -56,7 +56,7 @@ For a more detailed view of the training procedure, please refer to the `train.p
 
 ## Test and Results
 
-<img src="assets/binary_predictions_werrors.png" alt="Binary Model Prediction on a Random Sample with Circled Errors" width="400"/>  
+<img src="assets/binary_predictions_werrors.png" alt="Binary Model Prediction on a Random Sample with Circled Errors" width="300"/>  
 Figure: Binary Model Prediction on a Random Sample with Circled Errors Compared to the Truth
 
 The performance of the trained model is evaluated using two scripts: `test.py` and `statistics_val_dataset.py`.
