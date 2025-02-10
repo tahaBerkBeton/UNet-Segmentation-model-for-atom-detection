@@ -22,4 +22,4 @@ The architecture chosen for this project is a U-Net based model, specifically a 
 - **Final Output**:  
   A 1x1 convolution layer is applied at the end of the decoder to produce the segmentation map. (Note: The sigmoid activation is handled within the loss function, using BCEWithLogitsLoss.)
 
-This architecture, inspired by the original U-Net design, was chosen for its ability to effectively handle complex segmentation tasks, especially when precise localization is required. For a detailed view of the architecture implementation, please refer to the `train.py` file in this repository.
+For a detailed view of the architecture implementation, please refer to the `train.py` file in this repository.
