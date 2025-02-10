@@ -98,4 +98,4 @@ The performance of the trained model is evaluated using two scripts: `test.py` a
   <em>ROC curve showing model performance across different detection thresholds</em>
 </p>
 
-Additionally, the `roc.py` script provides further insights by computing the ROC curve across a range of detection thresholds. By evaluating the true positive rate (TPR) and false positive rate (FPR) at 10 evenly spaced thresholds between 0 and 1, the ROC curve illustrates that the model maintains high sensitivity while keeping false detections to a minimum. This analysis reinforces the effectiveness of our U-Net-based architecture for the atom detection task.
+Additionally, the `roc.py` script provides further insights by computing the ROC curve across a range of detection thresholds. By evaluating the true positive rate (TPR) and false positive rate (FPR) at 10 evenly spaced thresholds between 0 and 1, the ROC curve illustrates that the model maintains high sensitivity while keeping false detections to a minimum. This analysis reinforces the effectiveness of our U-Net-based architecture for the atom detection .
