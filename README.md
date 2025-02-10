@@ -9,7 +9,9 @@ Our goal is to segment these fluorescence images to accurately identify the exac
 
 ## Architecture Chosen
 
-<img src="assets/unet_architecture.png" alt="UNet Architecture" width="300"/>  
+<div align="center">
+  <img src="assets/unet_architecture.png" alt="UNet Architecture" width="300"/>
+</div>
 *Figure: UNet Architecture*
 
 The architecture chosen for this project is a U-Net based model, specifically a variant referred to as `GridNetU`. This design is tailored for segmentation tasks and offers several key benefits for atom detection:
