@@ -31,3 +31,14 @@ The training dataset for this project is stored in the `dataset` directory of th
 Each grayscale image, with pixel intensity values between 0 and 255, captures the fluorescence pattern produced by the atoms after excitation by lasers. Accompanying each image is a binary mask that serves as the ground truth for segmentation; for example, the file `data_0001.tiff` is paired with `truth_0001.tiff`.
 
 This dataset was acquired in a single experimental run under fixed conditions.
+
+## Training
+
+The model is trained using a standard deep learning pipeline implemented in PyTorch. We perform an 80/20 split of the dataset into training and validation sets and use data loaders to efficiently feed batches of images and their corresponding masks into the model.
+
+To address the class imbalance in the segmentation masks, we employ the `BCEWithLogitsLoss` loss function with a custom positive class weight (`pos_weight=97/3`). This helps the model to better learn from the less frequent positive pixels. The optimizer used is Adam, with a learning rate of 1e-4, which effectively updates the network parameters during training.
+
+Training is conducted over 30 epochs. During each epoch, the model undergoes forward propagation, loss computation, backpropagation, and parameter updates. The validation set is used to monitor the model's performance after each epoch, and the best model (with the lowest validation loss) is saved. Additionally, a plot of the training and validation loss over epochs is generated to visualize the learning progress.
+
+For a more detailed view of the training procedure, please refer to the `train.py` file.
+
