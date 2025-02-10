@@ -42,3 +42,25 @@ Training is conducted over 30 epochs. During each epoch, the model undergoes for
 
 For a more detailed view of the training procedure, please refer to the `train.py` file.
 
+## Test and Results
+
+The performance of the trained model is evaluated using two scripts: `test.py` and `statistics_val_dataset.py`.
+
+- **Single Image Evaluation (`test.py`)**:  
+  This script randomly selects a validation image and its corresponding ground truth mask. The image is preprocessed and fed into the model, which outputs a raw prediction. A threshold (0.5) is applied to convert the raw output into a binary mask. Key performance metrics—such as precision, recall, F1 score, accuracy, and specificity—are computed. Additionally, the script generates a visualization that displays the input data, ground truth, raw prediction, and binary prediction with error regions highlighted. Users can refer to the `test.py` file for a detailed look at the evaluation process on individual images.
+
+- **Overall Validation Evaluation (`statistics_val_dataset.py`)**:  
+  To obtain a comprehensive assessment of the model's performance, this script processes the entire validation dataset. It aggregates the confusion matrix components (true positives, false positives, true negatives, and false negatives) across all validation samples and computes the overall performance metrics. For instance, the evaluation on our validation set produced the following metrics:
+  
+  ```json
+  {
+      "metrics": {
+          "precision": 0.9931077647512676,
+          "recall": 0.9984346316261389,
+          "f1": 0.995764074185028,
+          "accuracy": 0.9997544725406805,
+          "specificity": 0.999793756747181
+      }
+  }
+
+
