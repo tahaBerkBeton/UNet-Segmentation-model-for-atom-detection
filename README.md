@@ -10,7 +10,7 @@ Our goal is to segment these fluorescence images to accurately identify the exac
 ## Architecture Chosen
 
 <div align="center">
-  <img src="assets/unet_architecture.png" alt="UNet Architecture" width="100"/>
+  <img src="assets/unet_architecture.png" alt="UNet Architecture" width="200"/>
 </div>
 Figure: UNet Architecture
 
