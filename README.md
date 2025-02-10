@@ -1,3 +1,4 @@
+
 # UNet Segmentation Model for Atom Detection
 
 ## Introduction
@@ -7,6 +8,9 @@ In this project, we address the problem of detecting atomic positions from fluor
 Our goal is to segment these fluorescence images to accurately identify the exact positions of the atoms responsible for the observed patterns. To achieve this, we frame the task as an image segmentation problem and employ a U-Net-based architecture, inspired by the well-established U-Net model introduced by Ronneberger et al. This model's encoder-decoder structure with skip connections makes it particularly well-suited for precise localization in our application.
 
 ## Architecture Chosen
+
+![UNet Architecture](assets/unet_architecture.png)  
+*Figure: UNet Architecture*
 
 The architecture chosen for this project is a U-Net based model, specifically a variant referred to as `GridNetU`. This design is tailored for segmentation tasks and offers several key benefits for atom detection:
 
@@ -26,6 +30,9 @@ For a detailed view of the architecture implementation, please refer to the `tra
 
 ## Dataset
 
+![Data Sample with Corresponding Truth](assets/data_truth.png)  
+*Figure: Data Sample with Corresponding Truth*
+
 The training dataset for this project is stored in the `dataset` directory of this repository. This folder contains a sample representing the type of data used for model training. Specifically, the dataset comprises 2,000 images, each named in the format `data_xxxx.tiff`, where `xxxx` is a zero-padded number ranging from 0001 up to 2000, corresponding to each data point.
 
 Each grayscale image, with pixel intensity values between 0 and 255, captures the fluorescence pattern produced by the atoms after excitation by lasers. Accompanying each image is a binary mask that serves as the ground truth for segmentation; for example, the file `data_0001.tiff` is paired with `truth_0001.tiff`.
@@ -33,6 +40,9 @@ Each grayscale image, with pixel intensity values between 0 and 255, captures th
 This dataset was acquired in a single experimental run under fixed conditions.
 
 ## Training
+
+![Training Curve over 30 Epochs](assets/training_validation_loss.png)  
+*Figure: Training Curve over 30 Epochs*
 
 The model is trained using a standard deep learning pipeline implemented in PyTorch. We perform an 80/20 split of the dataset into training and validation sets and use data loaders to efficiently feed batches of images and their corresponding masks into the model.
 
@@ -43,6 +53,9 @@ Training is conducted over 30 epochs. During each epoch, the model undergoes for
 For a more detailed view of the training procedure, please refer to the `train.py` file.
 
 ## Test and Results
+
+![Binary Model Prediction on a Random Sample with Circled Errors](assets/binary_predictions_werrors.png)  
+*Figure: Binary Model Prediction on a Random Sample with Circled Errors Compared to the Truth*
 
 The performance of the trained model is evaluated using two scripts: `test.py` and `statistics_val_dataset.py`.
 
@@ -62,8 +75,13 @@ The performance of the trained model is evaluated using two scripts: `test.py` a
           "specificity": 0.999793756747181
       }
   }
+  ```
+  
+  The above overall metrics demonstrate the high performance of our model. With a precision of 0.9931, recall of 0.9984, and an F1 score of 0.9958, the model reliably identifies atom positions with minimal false positives and negatives. The exceptional accuracy (99.9754%) and specificity (99.9794%) further confirm the robustness and reliability of our approach under fixed experimental conditions.
 
-The above overall metrics demonstrate the high performance of our model. With a precision of 0.9931, recall of 0.9984, and an F1 score of 0.9958, the model reliably identifies atom positions with minimal false positives and negatives. The exceptional accuracy (99.9754%) and specificity (99.9794%) further confirm the robustness and reliability of our approach under fixed experimental conditions.
-- **ROC Curve (`roc.py`)**:  
+- **ROC Curve (`roc.py`)**:
+
+![ROC Curve](assets/roc_curve.png)  
+*Figure: ROC Curve*
+
 Additionally, the `roc.py` script provides further insights by computing the ROC curve across a range of detection thresholds. By evaluating the true positive rate (TPR) and false positive rate (FPR) at 10 evenly spaced thresholds between 0 and 1, the ROC curve illustrates that the model maintains high sensitivity while keeping false detections to a minimum. This analysis reinforces the effectiveness of our U-Net-based architecture for the atom detection task.
-
