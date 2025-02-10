@@ -43,7 +43,7 @@ This dataset was acquired in a single experimental run under fixed conditions.
 
 ## Training
 
-<img src="assets/training_validation_loss.png" alt="Training Curve over 30 Epochs" width="300"/>  
+<img src="assets/training_validation_loss.png" alt="Training Curve over 30 Epochs" width="400"/>  
 Figure: Training Curve over 30 Epochs
 
 The model is trained using a standard deep learning pipeline implemented in PyTorch. We perform an 80/20 split of the dataset into training and validation sets and use data loaders to efficiently feed batches of images and their corresponding masks into the model.
