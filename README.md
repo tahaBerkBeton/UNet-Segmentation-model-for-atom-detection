@@ -23,3 +23,11 @@ The architecture chosen for this project is a U-Net based model, specifically a 
   A 1x1 convolution layer is applied at the end of the decoder to produce the segmentation map. (Note: The sigmoid activation is handled within the loss function, using BCEWithLogitsLoss.)
 
 For a detailed view of the architecture implementation, please refer to the `train.py` file in this repository.
+
+## Dataset
+
+The training dataset for this project is stored in the `dataset` directory of this repository. This folder contains a sample representing the type of data used for model training. Specifically, the dataset comprises 2,000 images, each named in the format `data_xxxx.tiff`, where `xxxx` is a zero-padded number ranging from 0000 (or 0001) up to 2000, corresponding to each data point.
+
+Each grayscale image, with pixel intensity values between 0 and 255, captures the fluorescence pattern produced by the atoms after excitation by lasers. Accompanying each image is a binary mask that serves as the ground truth for segmentation; for example, the file `data_0001.tiff` is paired with `truth_0001.tiff`.
+
+This dataset was acquired in a single experimental run under fixed conditions, ensuring a consistent and reliable set of training data.
